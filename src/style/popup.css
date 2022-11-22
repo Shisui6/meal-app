@@ -1,0 +1,63 @@
+#popup {
+  z-index: 10;
+  background: white;
+  border: 2px solid;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: scroll;
+}
+
+#popup .container {
+  display: flex;
+  width: 90vw;
+  height: 90vh;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#popup .popup-header {
+  text-align: right;
+}
+
+#popup .popup-header .close {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+#popup .popup-main {
+  text-align: center;
+}
+
+#popup .popup-main a img {
+  width: 50%;
+}
+
+#popup .popup-main ul {
+  list-style-type: none;
+  text-align: left;
+}
+
+#popup .popup-main .instructions {
+  text-align: left;
+}
+
+#popup .popup-footer ul {
+  list-style: none;
+}
+
+@media (min-width: 790px) {
+  #popup .popup-main .top-main {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 20px;
+  }
+
+  #popup .popup-main a img {
+    width: 300px;
+  }
+}
