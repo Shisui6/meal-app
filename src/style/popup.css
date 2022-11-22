@@ -1,9 +1,6 @@
-*{
+* {
   margin: 0;
   padding: 0;
-}
-
-#popup {
 }
 
 #popup::before {
@@ -54,7 +51,7 @@
 }
 
 #popup .popup-main a img {
-  width: 50%;
+  width: 250px;
 }
 
 #popup .popup-main ul {
@@ -73,9 +70,6 @@
   text-align: left;
 }
 
-#popup .popup-main a img {
-  width: 250px;
-}
 #popup .top-main h2 {
   padding: 10px;
 }
