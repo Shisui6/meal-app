@@ -12,6 +12,7 @@ profile.src = profileImg;
 
 // Get relevant elements from the DOM
 const main = document.getElementById('main');
+const sidebar = document.getElementById('sidebar-id');
 
 const fetchMealsByCategory = async () => {
   try {
@@ -44,4 +45,28 @@ const fetchMealsByCategory = async () => {
   }
 };
 
+const fetchCategories = async () => {
+  try {
+    const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
+    if (response.ok) {
+      const json = await response.json();
+      json.categories.splice(3, 2);
+      json.categories.splice(4, 1);
+      json.categories.splice(5, 4);
+      json.categories.pop();
+      json.categories.forEach((item) => {
+        const categoryElem = document.createElement('div');
+        categoryElem.innerHTML = `
+          <img src="${item.strCategoryThumb}" alt="meal">
+          <p>${item.strCategory}</p>
+        `;
+        sidebar.appendChild(categoryElem);
+      });
+    }
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+fetchCategories();
 fetchMealsByCategory();
