@@ -26,6 +26,7 @@
   border: none;
   font-size: 24px;
   font-weight: 900;
+  cursor: pointer;
 }
 
 #popup .popup-main {
