@@ -1,20 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 #popup {
+}
+
+#popup::before {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000040;
+}
+
+#popup .container {
+  width: 800px;
+  height: 80vh;
   z-index: 10;
   background: white;
-  border: 2px solid;
+  border: 2px solid #f4e7d3;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow: scroll;
-}
-
-#popup .container {
-  display: flex;
-  width: 90vw;
-  height: 90vh;
-  flex-direction: column;
-  gap: 10px;
+  overflow: auto;
 }
 
 #popup .popup-header {
@@ -27,10 +39,18 @@
   font-size: 24px;
   font-weight: 900;
   cursor: pointer;
+  color: #f4e7d3;
+  padding-top: 10px;
+  padding-right: 10px;
 }
 
 #popup .popup-main {
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  line-height: 1.3;
+  padding: 15px;
+  overflow: auto;
 }
 
 #popup .popup-main a img {
@@ -40,25 +60,22 @@
 #popup .popup-main ul {
   list-style-type: none;
   text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#popup .popup-main ul li {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 #popup .popup-main .instructions {
   text-align: left;
 }
 
-#popup .popup-footer ul {
-  list-style: none;
+#popup .popup-main a img {
+  width: 250px;
 }
-
-@media (min-width: 790px) {
-  #popup .popup-main .top-main {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-    padding: 20px;
-  }
-
-  #popup .popup-main a img {
-    width: 300px;
-  }
+#popup .top-main h2 {
+  padding: 10px;
 }

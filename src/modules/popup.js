@@ -1,4 +1,5 @@
 import '../style/popup.css';
+import theMealAPI from '../API/theMealAPI.js';
 
 const body = document.querySelector('body');
 const Meal = {
@@ -19,7 +20,13 @@ export default class Popup {
     this.mainDiv.id = 'popup';
   }
 
-  creatPoput(meal) {
+  creatPoput(id) {
+    theMealAPI(id).then((data) => data.json()).then((data) => data.meals[0]).then((data) => {
+      this.generate(data);
+    });
+  }
+
+  displayPopup(meal) {
     this.mainDiv.innerHTML = '';
 
     const container = document.createElement('div');
@@ -50,7 +57,7 @@ export default class Popup {
     const ingredients = document.createElement('ul');
     for (let i = 0; i < meal.strIngredients.length; i += 1) {
       const li = document.createElement('li');
-      li.innerHTML = `<span class="ingredient">${meal.strIngredients[i]}</span> == <span class="measure">${meal.strMeasure[i]}</span>`;
+      li.innerHTML = `<span class="ingredient">${meal.strIngredients[i]}</span> <span class="measure">(${meal.strMeasures[i]})</span>`;
       ingredients.appendChild(li);
     }
     infoContain.appendChild(ingredients);
@@ -62,19 +69,6 @@ export default class Popup {
     popupMain.appendChild(instructions);
     container.appendChild(popupMain);
 
-    const popupFooter = document.createElement('div');
-    popupFooter.classList.add('popup-footer');
-    const footerUl = document.createElement('ul');
-    const area = document.createElement('li');
-    area.classList.add('area');
-    area.innerHTML = meal.strArea;
-    footerUl.appendChild(area);
-    const category = document.createElement('li');
-    category.classList.add('category');
-    category.innerHTML = meal.strCategory;
-    footerUl.appendChild(category);
-    popupFooter.appendChild(footerUl);
-    container.appendChild(popupFooter);
     this.mainDiv.appendChild(container);
     body.appendChild(this.mainDiv);
   }
@@ -82,7 +76,28 @@ export default class Popup {
   close() {
     body.removeChild(this.mainDiv);
   }
+
+  generate(meal) {
+    const result = {};
+    const strIngredients = [];
+    const strMeasures = [];
+    // eslint-disable-next-line no-restricted-syntax
+    for (const property in meal) {
+      if (meal[property] !== '' && meal[property] != null) {
+        result[property] = meal[property];
+      }
+    }
+    for (let i = 1; i <= 20; i += 1) {
+      if (meal[`strIngredient${i}`] !== '') {
+        strIngredients.push(meal[`strIngredient${i}`]);
+        strMeasures.push(meal[`strMeasure${i}`]);
+      }
+    }
+    result.strIngredients = strIngredients;
+    result.strMeasures = strMeasures;
+    this.displayPopup(result);
+  }
 }
 
 const test = new Popup();
-test.creatPoput(Meal);
+test.creatPoput(52772);
