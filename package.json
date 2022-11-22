@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/Shisui6/meal-app/issues"
   },
-  "homepage": "https://github.com/Shisui6/meal-app",
+  "homepage": "https://shisui6.github.io/meal-app",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.19.6",
     "babel-eslint": "^10.1.0",
@@ -45,6 +45,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "bootstrap-icons": "^1.10.2",
     "gh-pages": "^4.0.0"
   }
 }

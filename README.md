@@ -2,25 +2,23 @@
 
 # 📗 Table of Contents
 
-- [📗 Table of Contents](#-table-of-contents)
-- [📖 Meal App ](#-meal-app-)
-  - [🛠 Built With ](#-built-with-)
-    - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
-  - [🚀 Live Demo ](#-live-demo-)
-  - [💻 Getting Started ](#-getting-started-)
-    - [Prerequisites](#prerequisites)
-    - [Setup](#setup)
-    - [Install](#install)
-    - [Usage](#usage)
-    - [Run tests](#run-tests)
-    - [Deployment](#deployment)
-  - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [📝 License ](#-license-)
+<details>
+  <summary>📗 Table of Contents</summary>
+  <ul>
+    <li><a href="#-meal-app-">📖 Meal App</a></li>
+    <li><a href="#-built-with-">🛠 Built With</a></li>
+    <li><a href="#-live-demo-">🚀 Live Demo </a></li>
+    <li><a href="#-getting-started-">💻 Getting Started</a></li>
+    <li><a href="#-authors-">👥 Authors </a></li>
+    <li><a href="#-future-features-">🔭 Future Features</a></li>
+    <li><a href="#-contributing-">🤝 Contributing</a></li>
+    <li><a href="#️-show-your-support-">⭐️ Show your support </a></li>
+    <li><a href="#-acknowledgments-">🙏 Acknowledgments </a></li>
+    <li><a href="#-license-">📝 License</a></li>
+  </ul>
+</details>
+
+<br>
 
 <!-- PROJECT DESCRIPTION -->
 
@@ -47,13 +45,11 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[Fetches and displays data from the mealdb API]**
-- **[Displays loading screens to the user during fetch]**
-- **[Displays meal infoomation and comments for each meal in a modal popup]**
-- **[Allows users to like meals]**
-- **[Responsive design which adapts to most screen sizes]**
+- **Fetches and displays data from the mealdb API**
+- **Displays loading screens to the user during fetch**
+- **Displays meal infoomation and comments for each meal in a modal popup**
+- **Allows users to like meals**
+- **Responsive design which adapts to most screen sizes**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -61,7 +57,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://github.com/Shisui6/meal-app)
+- [Live Demo Link](https://shisui6.github.io/meal-app)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -113,14 +109,12 @@ To run the project, execute the following command:
 To run tests, run the following command:
 
 ```sh
-  npm test - Launches the test runner in the interactive watch mode
+  npm test - Launches the test runner in the interactive   watch mode
 ```
 
 ### Deployment
 
 You can deploy this project using:
-
-Example:
 
 ```sh
   npm run deploy - Deploys using gh-pages
@@ -148,8 +142,9 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Mobile Responsiveness]**
-- [ ] **[Additional home pages for new categories of items]**
+- [ ] **Mobile Responsiveness**
+- [ ] **Additional home pages for new categories of items**
+- [ ] **Search bar to filter items by name**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
