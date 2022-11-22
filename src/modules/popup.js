@@ -74,7 +74,7 @@ export default class Popup {
     category.innerHTML = meal.strCategory;
     footerUl.appendChild(category);
     popupFooter.appendChild(footerUl);
-    container.appendChild(footerUl);
+    container.appendChild(popupFooter);
     this.mainDiv.appendChild(container);
     body.appendChild(this.mainDiv);
   }
