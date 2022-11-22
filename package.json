@@ -45,6 +45,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "bootstrap-icons": "^1.10.2",
     "gh-pages": "^4.0.0"
   }
 }
