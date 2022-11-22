@@ -12,8 +12,11 @@ body {
 
 /* Header */
 header {
+  position: fixed;
+  width: 100%;
+  top: 0;
   height: 65px;
-  padding: 5px 50px;
+  padding: 5px 100px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -39,6 +42,10 @@ nav {
   font-weight: 800;
 }
 
+.logo span {
+  color: #f4e7d3;
+}
+
 .search {
   width: 40%;
   display: flex;
@@ -56,11 +63,15 @@ nav {
   background-color: #f3f3f3;
 }
 
+button {
+  border: none;
+  background: none;
+}
+
 .search button {
   padding: 6px 15px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  border: none;
   background-color: #f4e7d3;
   font-size: 19px;
   cursor: pointer;
@@ -75,4 +86,42 @@ nav {
 #profile {
   height: 40px;
   width: 40px;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  margin-top: 65px;
+  width: 70px;
+  padding: 40px 0;
+  height: calc(100vh - 65px);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sidebar img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.sidebar p {
+  margin-top: 0;
+  font-size: 13px;
+}
+
+.sidebar div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding-top: 15px;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  transition: 0.3s;
+}
+
+.sidebar > div:hover {
+  background-color: #f2f2f2;
 }

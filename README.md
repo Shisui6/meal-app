@@ -57,7 +57,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://github.com/Shisui6/meal-app)
+- [Live Demo Link](https://shisui6.github.io/meal-app)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
