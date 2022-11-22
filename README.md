@@ -24,6 +24,8 @@
 
 **Meal App** is web application that shows you all your favourite meals. Select a meal to see more information and leave a comment on how delicious it is. Dont forget to leave a like 🧡
 
+![image](https://user-images.githubusercontent.com/37116322/203430270-40e8bc71-391a-45df-be1b-74b7aafc05f0.png)
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
