@@ -18,8 +18,6 @@
   </ul>
 </details>
 
-<br>
-
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 Meal App <a name="about-project"></a>
