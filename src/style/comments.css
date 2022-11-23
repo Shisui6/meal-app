@@ -1,17 +1,3 @@
-/* Start Global */
-* {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  scroll-behavior: smooth;
-  font-family: 'Nunito', sans-serif;
-}
-
 /* End Global */
 #commets-sidbar {
   position: fixed;
