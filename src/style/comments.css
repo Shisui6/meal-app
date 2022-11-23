@@ -6,12 +6,14 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   scroll-behavior: smooth;
   font-family: 'Nunito', sans-serif;
 }
+
 /* End Global */
-#commets-sidbar{
+#commets-sidbar {
   position: fixed;
   top: calc(0px - -65px);
   right: 0;
@@ -24,24 +26,30 @@ body {
   box-shadow: -8px 0 8px 0 rgb(0 0 0 / 20%);
   transition: 0.5s;
 }
-#commets-sidbar.close{
+
+#commets-sidbar.close {
   left: 100%;
 }
+
 #commets-sidbar .close {
   cursor: pointer;
 }
+
 #commets-sidbar .card {
   padding-top: 15px;
 }
-#commets-sidbar .card .info{
+
+#commets-sidbar .card .info {
   display: flex;
   gap: 20px;
   align-items: center;
 }
+
 #commets-sidbar .info img {
   width: 40px;
   height: 40px;
 }
+
 #commets-sidbar .card p {
   padding-left: 20px;
   padding-top: 10px;
