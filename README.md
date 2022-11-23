@@ -18,13 +18,15 @@
   </ul>
 </details>
 
+<br>
+
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 Meal App <a name="about-project"></a>
 
 **Meal App** is web application that shows you all your favourite meals. Select a meal to see more information and leave a comment on how delicious it is. Dont forget to leave a like 🧡
 
-![image](https://user-images.githubusercontent.com/37116322/203430270-40e8bc71-391a-45df-be1b-74b7aafc05f0.png)
+![image](https://user-images.githubusercontent.com/37116322/203491283-1803914a-23d3-4258-9e74-3e391359fc68.png)
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -45,11 +47,12 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Fetches and displays data from the mealdb API**
-- **Displays loading screens to the user during fetch**
-- **Displays meal infoomation and comments for each meal in a modal popup**
-- **Allows users to like meals**
-- **Responsive design which adapts to most screen sizes**
+- Fetches and displays data from the mealdb API
+- Displays loading screens to the user during fetch
+- Displays meal information and comments for each meal in a modal popup
+- Allows users to like meals
+- Allows users to comment on meals
+- Responsive design which adapts to most screen sizes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -142,9 +145,8 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Mobile Responsiveness**
-- [ ] **Additional home pages for new categories of items**
-- [ ] **Search bar to filter items by name**
+- [ ] Mobile Responsiveness
+- [ ] Search bar to filter items by name
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
