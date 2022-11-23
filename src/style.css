@@ -243,6 +243,7 @@ button {
   animation: fadeIn 0.3s;
   animation-fill-mode: forwards;
   opacity: 0;
+  z-index: 10;
 }
 
 @keyframes fadeIn {
