@@ -222,11 +222,11 @@ button {
 
 .bi-chat:hover {
   background-color: #f0f0f0;
-  color: #f4e7d3;
+  color: #c2a171;
 }
 
 .bi-chat:hover ~ p {
-  color: #f4e7d3;
+  color: #c2a171;
 }
 
 /* Popup */

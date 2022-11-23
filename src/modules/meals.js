@@ -11,8 +11,10 @@ const loaderSide = document.getElementById('skeleton-loader-side');
 export const fetchMealsByCategory = async (cat) => {
   try {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`);
-    if (response.ok) {
+    const response1 = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${process.env.API_KEY}/likes`);
+    if (response.ok && response1.ok) {
       const json = await response.json();
+      const json1 = await response1.json();
       loaderMain.classList.toggle('hide');
       json.meals.forEach((item) => {
         const mealElem = document.createElement('div');
@@ -29,7 +31,7 @@ export const fetchMealsByCategory = async (cat) => {
           </div>
           <div class="likes">
             <i class="bi bi-heart"></i>
-            <p>100</p>
+            <p>${json1.find((x) => x.item_id === item.idMeal) ? json1.find((x) => x.item_id === item.idMeal).item_id : '0'}</p>
           </div>
         </div>
       `);
