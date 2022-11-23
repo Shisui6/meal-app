@@ -23,6 +23,7 @@ header {
   padding: 5px 100px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: #fff;
+  z-index: 5;
 }
 
 nav {
