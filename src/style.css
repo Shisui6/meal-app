@@ -220,13 +220,17 @@ button {
   background: rgba(255, 192, 200, 0.7);
 }
 
+.likes-amount {
+  margin-left: 10px;
+}
+
+.heart-bg-hover:hover ~ .likes-amount {
+  color: #e2264d;
+}
+
 .like-button {
   display: flex;
   align-items: center;
-}
-
-.likes-amount {
-  margin-left: 10px;
 }
 
 .comments {
