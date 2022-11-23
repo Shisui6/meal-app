@@ -1,4 +1,3 @@
-import '../style/popup.css';
 import { getById } from '../API/theMealAPI.js';
 
 const body = document.querySelector('body');
@@ -10,7 +9,7 @@ export default class Popup {
     this.mainDiv.id = 'popup';
   }
 
-  creatPoput(id) {
+  createPopup(id) {
     getById(id).then((data) => data.json()).then((data) => data.meals[0]).then((data) => {
       this.generate(data);
     });
@@ -39,6 +38,9 @@ export default class Popup {
     mealImg.src = meal.strMealThumb;
     youtubeLink.appendChild(mealImg);
     topMain.appendChild(youtubeLink);
+    popupMain.appendChild(topMain);
+    const instructions = document.createElement('div');
+    instructions.classList.add('instructions');
     const infoContain = document.createElement('div');
     const name = document.createElement('h2');
     name.innerHTML = meal.strMeal;
@@ -50,11 +52,10 @@ export default class Popup {
       ingredients.appendChild(li);
     }
     infoContain.appendChild(ingredients);
-    topMain.appendChild(infoContain);
-    popupMain.appendChild(topMain);
-    const instructions = document.createElement('div');
-    instructions.classList.add('instructions');
-    instructions.innerHTML = meal.strInstructions;
+    instructions.appendChild(infoContain);
+    const directions = document.createElement('p');
+    directions.textContent = meal.strInstructions;
+    instructions.appendChild(directions);
     popupMain.appendChild(instructions);
     container.appendChild(popupMain);
 
@@ -87,6 +88,3 @@ export default class Popup {
     this.displayPopup(result);
   }
 }
-
-// const test = new Popup();
-// test.creatPoput(52772);

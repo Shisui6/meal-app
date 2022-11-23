@@ -7,7 +7,7 @@ const sidebar = document.createElement('div');
 sidebar.id = 'commets-sidbar';
 
 // create one comment in the sidebar
-const displayComment = (comment) => {
+export const displayComment = (comment) => {
   const card = document.createElement('div');
   card.classList.add('card');
 
@@ -31,7 +31,7 @@ const displayComment = (comment) => {
 };
 
 // creat all comments by using list of object from the api
-const displayComments = (comments) => {
+export const displayComments = (comments) => {
   sidebar.innerHTML = '';
   // check if it's null if not create all the comments an show it, if it is just show
   if (comments) {
@@ -53,7 +53,7 @@ const displayComments = (comments) => {
 };
 
 // use this to make the comments shown by givin the id of the meal
-const showComments = (id) => {
+export const showComments = (id) => {
   getComments(id).then((data) => displayComments(data)).catch(() => displayComments(null));
 };
-showComments('item1');
+// showComments('item1');

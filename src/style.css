@@ -4,6 +4,10 @@
   font-family: 'Nunito', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Body */
 body {
   margin: 0;
@@ -140,18 +144,28 @@ button {
   padding: 40px 20px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 20px;
-  row-gap: 20px;
+  row-gap: 30px;
 }
 
-.meals .meal {
+.meal {
   display: grid;
-  align-content: space-between;
+}
+
+.meal-img-cont {
+  height: 180px;
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 .meal img {
   width: 100%;
-  height: 180px;
-  border-radius: 15px;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.meal-img-cont:hover img {
+  transform: scale(1.1);
 }
 
 .meal h3 {
@@ -202,17 +216,112 @@ button {
   margin-right: 5px;
   padding: 5px 8px 4px;
   border-radius: 50%;
+  transition: 0.3s;
   font-size: 18px;
   cursor: pointer;
 }
 
 .bi-chat:hover {
-  background-color: #e1eef6;
-  color: #1d9bf0;
+  background-color: #f0f0f0;
+  color: #c2a171;
 }
 
 .bi-chat:hover ~ p {
-  color: #1d9bf0;
+  color: #c2a171;
+}
+
+/* Popup */
+#popup {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  z-index: 10;
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+.container {
+  width: 15%;
+  height: 10vh;
+  z-index: 10;
+  background: white;
+  border: 5px solid #f4e7d3;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+  border-radius: 15px;
+  animation: grow 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes grow {
+  100% {
+    width: 80%;
+    height: 85vh;
+  }
+}
+
+#popup .popup-header {
+  text-align: right;
+}
+
+#popup .popup-header .close {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  color: #f4e7d3;
+  padding: 10px 10px 0;
+}
+
+#popup .close:hover {
+  color: #c2a171;
+}
+
+#popup .popup-main {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  line-height: 1.3;
+  padding: 0 15px 15px;
+  overflow: auto;
+}
+
+#popup .popup-main a img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+#popup .popup-main .instructions {
+  text-align: left;
+}
+
+#popup h2 {
+  font-size: 38px;
+  margin-top: 5px;
+  color: #c2a171;
+  margin-bottom: 0;
+}
+
+#popup p,
+#popup li {
+  font-size: 12.3px;
 }
 
 /* Loading skeleton */
