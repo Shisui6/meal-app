@@ -1,5 +1,5 @@
 import '../style/popup.css';
-import theMealAPI from '../API/theMealAPI.js';
+import { getById } from '../API/theMealAPI.js';
 
 const body = document.querySelector('body');
 
@@ -11,14 +11,13 @@ export default class Popup {
   }
 
   creatPoput(id) {
-    theMealAPI(id).then((data) => data.json()).then((data) => data.meals[0]).then((data) => {
+    getById(id).then((data) => data.json()).then((data) => data.meals[0]).then((data) => {
       this.generate(data);
     });
   }
 
   displayPopup(meal) {
     this.mainDiv.innerHTML = '';
-
     const container = document.createElement('div');
     container.classList.add('container');
     const popupHeader = document.createElement('div');
