@@ -89,5 +89,5 @@ export default class Popup {
   }
 }
 
-const test = new Popup();
-test.creatPoput(52772);
+// const test = new Popup();
+// test.creatPoput(52772);
