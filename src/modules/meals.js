@@ -1,3 +1,6 @@
+// Imports
+import Popup from './popup.js';
+
 // Get relevant elements from the DOM
 const meals = document.getElementById('meals-id');
 const sidebar = document.getElementById('sidebar-id');
@@ -15,7 +18,9 @@ export const fetchMealsByCategory = async (cat) => {
         const mealElem = document.createElement('div');
         mealElem.className = 'meal';
         mealElem.insertAdjacentHTML('beforeend', `
-        <img src="${item.strMealThumb}" alt="meal">
+        <div class="meal-img-cont">
+          <img src="${item.strMealThumb}" alt="meal">
+        </div>
         <h3>${item.strMeal}</h3>
         <div class="meal-info">
           <div class="comments">
@@ -28,7 +33,13 @@ export const fetchMealsByCategory = async (cat) => {
           </div>
         </div>
       `);
+        mealElem.firstElementChild.id = `meal-${item.idMeal}`;
         meals.appendChild(mealElem);
+
+        document.getElementById(`meal-${item.idMeal}`).addEventListener('click', () => {
+          const popup = new Popup();
+          popup.createPopup(item.idMeal);
+        });
       });
     }
   } catch (error) {

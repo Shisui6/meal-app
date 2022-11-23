@@ -10,7 +10,7 @@ export default class Popup {
     this.mainDiv.id = 'popup';
   }
 
-  creatPoput(id) {
+  createPopup(id) {
     theMealAPI(id).then((data) => data.json()).then((data) => data.meals[0]).then((data) => {
       this.generate(data);
     });
@@ -90,4 +90,4 @@ export default class Popup {
 }
 
 // const test = new Popup();
-// test.creatPoput(52772);
+// test.createPopup(52772);
