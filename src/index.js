@@ -5,6 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import logoImg from './images/logo.png';
 import profileImg from './images/profile.png';
 import { fetchCategories, fetchMealsByCategory } from './modules/meals.js';
+import './modules/comments.js';
 
 // Get relevant elements from the DOM
 const loaderMain = document.getElementById('skeleton-loader-main');

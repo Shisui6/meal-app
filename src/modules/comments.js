@@ -47,7 +47,6 @@ export const displayComments = (comments, id) => {
     close.addEventListener('click', () => sidebar.classList.add('close'));
     header.appendChild(close);
     sidebar.appendChild(header);
-
     const { length } = comments;
     for (let i = 0; i < length; i += 1) {
       container.appendChild(displayComment(comments[i]));
@@ -73,16 +72,15 @@ export const displayComments = (comments, id) => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (inputName.value.trim() !== '' && inputcomment.value.trim() !== '') {
-        addComments({
+        const newComment = {
           item_id: id,
           username: inputName.value,
           comment: inputcomment.value,
-        });
+        };
+        addComments(newComment);
         inputName.value = '';
         inputcomment.value = '';
-        getComments(id)
-          .then((data) => displayComments(data, id))
-          .catch(() => displayComments(null));
+        container.appendChild(displayComment(newComment));
       }
     });
 
@@ -96,5 +94,9 @@ export const displayComments = (comments, id) => {
 
 // use this to make the comments shown by givin the id of the meal
 export const showComments = (id) => {
-  getComments(id).then((data) => displayComments(data, id)).catch(() => displayComments(null));
+  getComments(id)
+    .then((data) => {
+      displayComments(data, id);
+    })
+    .catch(() => displayComments(null));
 };
