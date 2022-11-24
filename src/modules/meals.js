@@ -1,4 +1,5 @@
 // Imports
+import autoAnimate from '@formkit/auto-animate';
 import Popup from './popup.js';
 import { showComments } from './comments.js';
 import { likeURL, like } from './likes.js';
@@ -9,6 +10,9 @@ const meals = document.getElementById('meals-id');
 const sidebar = document.getElementById('sidebar-id');
 const loaderMain = document.getElementById('skeleton-loader-main');
 const loaderSide = document.getElementById('skeleton-loader-side');
+
+const controller = autoAnimate(meals);
+autoAnimate(sidebar);
 
 // local array of meal ids which the user has liked
 const likes = [];
@@ -80,10 +84,7 @@ const modifyPage = () => {
   for (let i = 0; i < amounts.length; i += 1) {
     amounts[i].textContent = '';
   }
-  const cats = document.querySelectorAll('#sidebar-id div');
-  for (let i = 0; i < cats.length; i += 1) {
-    cats[i].classList.remove('selected');
-  }
+
   if (!document.getElementById('empty-id').classList.contains('hide')) {
     document.getElementById('empty-id').classList.toggle('hide');
   }
@@ -92,6 +93,10 @@ const modifyPage = () => {
 // Function to fetch all meals from a category and append to DOM
 export const search = async (term) => {
   modifyPage();
+  const cats = document.querySelectorAll('#sidebar-id div');
+  for (let i = 0; i < cats.length; i += 1) {
+    cats[i].classList.remove('selected');
+  }
 
   try {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`);
@@ -105,6 +110,7 @@ export const search = async (term) => {
         appendElements(json.meals[0], json1);
       } else {
         document.getElementById('empty-id').classList.toggle('hide');
+        document.getElementById('empty-term').textContent = `${term}`;
       }
     }
   } catch (error) {
@@ -123,6 +129,7 @@ export const fetchMealsByCategory = async (cat) => {
       const json = await response.json();
       const json1 = await response1.json();
       loaderMain.classList.toggle('hide');
+      controller.enable();
       json.meals.forEach((item) => {
         appendElements(item, json1);
       });
@@ -158,8 +165,9 @@ export const fetchCategories = async () => {
         sidebar.appendChild(categoryElem);
 
         document.getElementById(`category-${item.strCategory}`).addEventListener('click', () => {
-          meals.innerHTML = '';
           loaderMain.classList.toggle('hide');
+          controller.disable();
+          meals.innerHTML = '';
           const cats = document.querySelectorAll('#sidebar-id div');
           for (let i = 0; i < cats.length; i += 1) {
             cats[i].classList.remove('selected');

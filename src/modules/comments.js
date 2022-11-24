@@ -1,3 +1,4 @@
+import autoAnimate from '@formkit/auto-animate';
 import { addComments, getComments } from './theMealAPI.js';
 import profileImg from '../images/profile.png';
 import profile2Img from '../images/profile2.png';
@@ -46,6 +47,7 @@ export const displayComments = (comments, id) => {
   // check if it's null if not create all the comments an show it, if it is just show
   if (comments) {
     const container = document.createElement('div');
+    autoAnimate(container);
     container.classList.add('container');
     sidebar.classList.add('close');
 

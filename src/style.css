@@ -271,6 +271,13 @@ button {
   padding-top: 130px;
 }
 
+.empty h2 {
+  color: #c2a171;
+  font-size: 25px;
+  width: 50%;
+  margin: 0 auto;
+}
+
 /* Popup */
 #popup {
   content: '';
