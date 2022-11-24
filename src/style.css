@@ -282,7 +282,7 @@ button {
   }
 }
 
-.container {
+#popup .container {
   width: 15%;
   height: 10vh;
   z-index: 10;

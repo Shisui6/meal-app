@@ -1,4 +1,4 @@
-import { getComments } from '../API/theMealAPI.js';
+import { addComments, getComments } from '../API/theMealAPI.js';
 import '../style/comments.css';
 import profileImg from '../images/profile.png';
 
@@ -12,41 +12,81 @@ export const displayComment = (comment) => {
   card.classList.add('card');
 
   // a div to contain the image and the name so they can be in the same line
-  const info = document.createElement('div');
-  info.classList.add('info');
+  const textContainer = document.createElement('div');
+  textContainer.classList.add('text-container');
 
   const photo = document.createElement('img');
   photo.src = profileImg;
-  info.appendChild(photo);
+  card.appendChild(photo);
 
   const name = document.createElement('h3');
   name.innerHTML = comment.username;
-  info.appendChild(name);
-  card.appendChild(info);
+  textContainer.appendChild(name);
 
   const message = document.createElement('p');
   message.textContent = comment.comment;
-  card.appendChild(message);
+  textContainer.appendChild(message);
+  card.appendChild(textContainer);
   return card;
 };
 
 // creat all comments by using list of object from the api
-export const displayComments = (comments) => {
+export const displayComments = (comments, id) => {
   sidebar.innerHTML = '';
   // check if it's null if not create all the comments an show it, if it is just show
   if (comments) {
+    const container = document.createElement('div');
+    container.classList.add('container');
     sidebar.classList.add('close');
 
+    const header = document.createElement('div');
+    header.classList.add('header');
     const close = document.createElement('span');
     close.textContent = 'X';
     close.classList.add('close');
     close.addEventListener('click', () => sidebar.classList.add('close'));
-    sidebar.appendChild(close);
-
+    header.appendChild(close);
+    sidebar.appendChild(header);
     const { length } = comments;
     for (let i = 0; i < length; i += 1) {
-      sidebar.appendChild(displayComment(comments[i]));
+      container.appendChild(displayComment(comments[i]));
     }
+    const formContainer = document.createElement('div');
+    formContainer.classList.add('formContainer');
+    const form = document.createElement('form');
+    const inputName = document.createElement('input');
+    inputName.classList.add('name');
+    inputName.type = 'text';
+    inputName.placeholder = 'name';
+    inputName.setAttribute('required', 'true');
+    form.appendChild(inputName);
+    const inputcomment = document.createElement('textarea');
+    inputcomment.classList.add('comment');
+    inputcomment.placeholder = 'add you comment...';
+    inputcomment.setAttribute('required', 'true');
+    form.appendChild(inputcomment);
+    const submit = document.createElement('button');
+    submit.type = 'submit';
+    submit.textContent = 'send';
+    form.appendChild(submit);
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (inputName.value.trim() !== '' && inputcomment.value.trim() !== '') {
+        const newComment = {
+          item_id: id,
+          username: inputName.value,
+          comment: inputcomment.value,
+        };
+        addComments(newComment);
+        inputName.value = '';
+        inputcomment.value = '';
+        container.appendChild(displayComment(newComment));
+      }
+    });
+
+    formContainer.appendChild(form);
+    sidebar.appendChild(container);
+    sidebar.appendChild(formContainer);
     body.appendChild(sidebar);
   }
   sidebar.classList.remove('close');
@@ -54,5 +94,9 @@ export const displayComments = (comments) => {
 
 // use this to make the comments shown by givin the id of the meal
 export const showComments = (id) => {
-  getComments(id).then((data) => displayComments(data)).catch(() => displayComments(null));
+  getComments(id)
+    .then((data) => {
+      displayComments(data, id);
+    })
+    .catch(() => displayComments(null));
 };
