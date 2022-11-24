@@ -98,7 +98,7 @@ button {
 .sidebar {
   position: fixed;
   left: 0;
-  width: 70px;
+  width: 72px;
   padding: 40px 0;
   height: calc(100vh - 65px);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -117,7 +117,7 @@ button {
 
 .sidebar p {
   margin-top: 0;
-  font-size: 13px;
+  font-size: 11.5px;
 }
 
 .cat {
@@ -126,7 +126,7 @@ button {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  padding-top: 15px;
+  padding: 10px;
   border-radius: 15px;
   margin-bottom: 5px;
   transition: 0.3s;
@@ -153,6 +153,9 @@ button {
 
 .meal-img-cont {
   height: 180px;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
   overflow: hidden;
   border-radius: 15px;
   cursor: pointer;
@@ -187,8 +190,8 @@ button {
 }
 
 .heart-icon {
-  height: 70px;
-  width: 70px;
+  height: 65px;
+  width: 65px;
   background: url("./images/heart.png");
   background-position: left;
   cursor: pointer;
@@ -208,12 +211,13 @@ button {
 .heart-bg {
   background: rgba(255, 192, 200, 0);
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 36px;
+  width: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 100ms ease;
+  transition: 0.3s;
 }
 
 .heart-bg-hover:hover {
@@ -221,7 +225,7 @@ button {
 }
 
 .likes-amount {
-  margin-left: 10px;
+  margin-left: 12px;
 }
 
 .heart-bg-hover:hover ~ .likes-amount {
@@ -241,21 +245,18 @@ button {
   margin-right: 30px;
 }
 
-.bi-chat {
+.bi-chat-fill {
   margin-right: 5px;
-  padding: 5px 8px 4px;
+  padding: 7px 10px 6px;
   border-radius: 50%;
   transition: 0.3s;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
-}
-
-.bi-chat:hover {
-  background-color: #f0f0f0;
   color: #c2a171;
 }
 
-.bi-chat:hover ~ p {
+.bi-chat-fill:hover {
+  background-color: #f0f0f0;
   color: #c2a171;
 }
 
@@ -316,6 +317,7 @@ button {
   cursor: pointer;
   color: #f4e7d3;
   padding: 10px 10px 0;
+  transition: 0.3s;
 }
 
 #popup .close:hover {
