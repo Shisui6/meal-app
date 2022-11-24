@@ -5,13 +5,11 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import logoImg from './images/logo.png';
 import profileImg from './images/profile.png';
 import { fetchCategories, fetchMealsByCategory } from './modules/meals.js';
-import { showComments } from './modules/comments.js';
 
 // Get relevant elements from the DOM
 const loaderMain = document.getElementById('skeleton-loader-main');
 const loaderSide = document.getElementById('skeleton-loader-side');
 const logo = document.getElementById('logo');
-logo.addEventListener('click', () => showComments('item1'));
 const profile = document.getElementById('profile');
 
 // Set the source for local images
