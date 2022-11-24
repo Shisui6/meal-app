@@ -186,22 +186,51 @@ button {
   height: 40px;
 }
 
-.bi-heart {
-  margin-right: 4px;
-  padding: 8px 8px 3px;
-  border-radius: 50%;
-  transition: 0.3s;
+.heart-icon {
+  height: 70px;
+  width: 70px;
+  background: url("./images/heart.png");
+  background-position: left;
   cursor: pointer;
-  font-size: 18px;
+  position: absolute;
 }
 
-.bi-heart:hover {
-  background-color: #f7e0eb;
-  color: #f91880;
+.heart-icon.liked {
+  animation: like-anim 0.7s steps(28) forwards;
 }
 
-.bi-heart:hover ~ p {
-  color: #f91880;
+@keyframes like-anim {
+  to {
+    background-position: right;
+  }
+}
+
+.heart-bg {
+  background: rgba(255, 192, 200, 0);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 100ms ease;
+}
+
+.heart-bg-hover:hover {
+  background: rgba(255, 192, 200, 0.7);
+}
+
+.likes-amount {
+  margin-left: 10px;
+}
+
+.heart-bg-hover:hover ~ .likes-amount {
+  color: #e2264d;
+}
+
+.like-button {
+  display: flex;
+  align-items: center;
 }
 
 .comments {
