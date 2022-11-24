@@ -93,4 +93,3 @@ export const displayComments = (comments, id) => {
 export const showComments = (id) => {
   getComments(id).then((data) => displayComments(data, id)).catch(() => displayComments(null));
 };
-showComments('item1');
