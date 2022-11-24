@@ -1,4 +1,4 @@
-import { getComments } from '../API/theMealAPI.js';
+import { addComments, getComments } from '../API/theMealAPI.js';
 import '../style/comments.css';
 import profileImg from '../images/profile.png';
 
@@ -31,12 +31,13 @@ export const displayComment = (comment) => {
 };
 
 // creat all comments by using list of object from the api
-export const displayComments = (comments) => {
+export const displayComments = (comments, id) => {
   sidebar.innerHTML = '';
   // check if it's null if not create all the comments an show it, if it is just show
   if (comments) {
+    const container = document.createElement('div');
+    // container.
     sidebar.classList.add('close');
-
     const close = document.createElement('span');
     close.textContent = 'X';
     close.classList.add('close');
@@ -47,6 +48,42 @@ export const displayComments = (comments) => {
     for (let i = 0; i < length; i += 1) {
       sidebar.appendChild(displayComment(comments[i]));
     }
+    const formContainer = document.createElement('div');
+    formContainer.classList.add('formContainer');
+    const form = document.createElement('form');
+    const inputName = document.createElement('input');
+    inputName.classList.add('name');
+    inputName.type = 'text';
+    inputName.placeholder = 'name';
+    inputName.setAttribute('required', 'true');
+    form.appendChild(inputName);
+    const inputcomment = document.createElement('textarea');
+    inputcomment.classList.add('comment');
+    inputcomment.placeholder = 'add you comment...';
+    inputcomment.setAttribute('required', 'true');
+    form.appendChild(inputcomment);
+    const submit = document.createElement('button');
+    submit.type = 'submit';
+    submit.textContent = 'send';
+    form.appendChild(submit);
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (inputName.value.trim() !== '' && inputcomment.value.trim() !== '') {
+        addComments({
+          item_id: id,
+          username: inputName.value,
+          comment: inputcomment.value,
+        });
+        inputName.value = '';
+        inputcomment.value = '';
+        getComments(id)
+          .then((data) => displayComments(data, id))
+          .catch(() => displayComments(null));
+      }
+    });
+
+    formContainer.appendChild(form);
+    sidebar.appendChild(formContainer);
     body.appendChild(sidebar);
   }
   sidebar.classList.remove('close');
@@ -54,6 +91,6 @@ export const displayComments = (comments) => {
 
 // use this to make the comments shown by givin the id of the meal
 export const showComments = (id) => {
-  getComments(id).then((data) => displayComments(data)).catch(() => displayComments(null));
+  getComments(id).then((data) => displayComments(data, id)).catch(() => displayComments(null));
 };
-// showComments('item1');
+showComments('item1');

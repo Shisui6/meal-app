@@ -11,7 +11,7 @@ const loaderSide = document.getElementById('skeleton-loader-side');
 export const fetchMealsByCategory = async (cat) => {
   try {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`);
-    const response1 = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${process.env.API_KEY}/likes`);
+    const response1 = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ZL01BQpf9fh0l4EnAOtP/likes');
     if (response.ok && response1.ok) {
       const json = await response.json();
       const json1 = await response1.json();
