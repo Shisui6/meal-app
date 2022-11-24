@@ -15,6 +15,7 @@
   box-shadow: -8px 0 8px 0 rgb(0 0 0 / 20%);
   transition: 0.5s;
   display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 #commets-sidbar .header {
