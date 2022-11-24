@@ -1,4 +1,4 @@
-import { addComments, getComments } from '../API/theMealAPI.js';
+import { addComments, getComments } from './theMealAPI.js';
 import profileImg from '../images/profile.png';
 import profile2Img from '../images/profile2.png';
 import profile3Img from '../images/profile3.png';
