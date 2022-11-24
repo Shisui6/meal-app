@@ -61,7 +61,7 @@ export const fetchMealsByCategory = async (cat) => {
         });
 
         document.getElementById(`comment-${item.idMeal}`).addEventListener('click', () => {
-          showComments('item1');
+          showComments(item.idMeal);
         });
 
         document.getElementById(`like-${item.idMeal}`).addEventListener('click', (e) => {
