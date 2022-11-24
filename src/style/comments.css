@@ -18,24 +18,41 @@
   grid-template-rows: auto 1fr auto;
 }
 
+#commets-sidbar.close {
+  left: 100%;
+}
+
 #commets-sidbar .header {
   padding: 15px;
+  display: flex;
+  justify-content: space-between;
   box-shadow: 0 0 8px -2px black;
 }
 
-#commets-sidbar.close {
-  left: 100%;
+#commets-sidbar .header .close {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 900;
+  color: #c2a171;
+  transition: 0.3s;
+}
+
+#commets-sidbar .header .close:hover {
+  color: #ccc;
+}
+
+#commets-sidbar .header .sction-name {
+  color: #c2a171;
+  font-weight: 800;
+  font-size: 18px;
 }
 
 #commets-sidbar .container {
   overflow: auto;
   display: flex;
   padding: 15px;
+  height: 105%;
   flex-direction: column;
-}
-
-#commets-sidbar .close {
-  cursor: pointer;
 }
 
 #commets-sidbar .card {
@@ -43,6 +60,8 @@
   padding-top: 15px;
   display: flex;
   gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eaeaea;
 }
 
 #commets-sidbar img {
@@ -75,9 +94,15 @@
   height: 35px;
   border-radius: 20px;
   border: none;
-  box-shadow: 0 0 6px 1px black;
+  outline: none;
+  box-shadow: 0 0 6px 1px #c2a171;
   padding-left: 20px;
   padding-right: 70px;
+  transition: 0.3s;
+}
+
+#commets-sidbar form input.name:focus {
+  box-shadow: 0 0 8px 1px #ccc;
 }
 
 #commets-sidbar form .comment {
@@ -85,9 +110,14 @@
   height: calc(100% - 50px);
   border-radius: 20px;
   border: none;
-  box-shadow: 0 0 6px 1px black;
+  outline: none;
+  box-shadow: 0 0 6px 1px #c2a171;
   padding: 15px;
   resize: none;
+}
+
+#commets-sidbar form .comment:focus {
+  box-shadow: 0 0 8px 1px #ccc;
 }
 
 #commets-sidbar form button {
@@ -97,5 +127,11 @@
   right: 15px;
   bottom: 15px;
   padding: 10px;
-  border-radius: 15px;
+  transition: 0.3s;
+  border-radius: 15px 0 15px 0;
+}
+
+#commets-sidbar form button:hover {
+  background-color: #ccc;
+  color: #fff;
 }

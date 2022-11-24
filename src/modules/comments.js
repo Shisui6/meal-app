@@ -30,6 +30,8 @@ export const displayComment = (comment) => {
   return card;
 };
 
+const comentsSize = (array) => array.length;
+
 // creat all comments by using list of object from the api
 export const displayComments = (comments, id) => {
   sidebar.innerHTML = '';
@@ -41,13 +43,17 @@ export const displayComments = (comments, id) => {
 
     const header = document.createElement('div');
     header.classList.add('header');
+    const sction = document.createElement('span');
+    sction.classList.add('sction-name');
+    sction.textContent = `Comments(${comentsSize(comments)})`;
+    header.appendChild(sction);
     const close = document.createElement('span');
     close.textContent = 'X';
     close.classList.add('close');
     close.addEventListener('click', () => sidebar.classList.add('close'));
     header.appendChild(close);
     sidebar.appendChild(header);
-    const { length } = comments;
+    const length = comentsSize(comments);
     for (let i = 0; i < length; i += 1) {
       container.appendChild(displayComment(comments[i]));
     }
@@ -67,7 +73,7 @@ export const displayComments = (comments, id) => {
     form.appendChild(inputcomment);
     const submit = document.createElement('button');
     submit.type = 'submit';
-    submit.textContent = 'send';
+    submit.innerHTML = '<i class="bi bi-arrow-return-left"></i>';
     form.appendChild(submit);
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -77,10 +83,12 @@ export const displayComments = (comments, id) => {
           username: inputName.value,
           comment: inputcomment.value,
         };
-        addComments(newComment);
         inputName.value = '';
         inputcomment.value = '';
-        container.appendChild(displayComment(newComment));
+        addComments(newComment)
+          .then(() => getComments(id)
+            .then((data) => displayComments(data, id))
+            .catch(() => displayComments(null)));
       }
     });
 
