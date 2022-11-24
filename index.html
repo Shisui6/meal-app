@@ -11,21 +11,23 @@
   <link rel="icon" type="image/x-icon" href="./images/favicon.png">
 <link rel="icon" href="favicon.png"><script defer src="main.js"></script></head>
 <body>
+  <!-- Header -->
   <header>
     <nav>
       <div class="logo">
         <img id="logo" alt="logo">
         <p>Meal <span>App</span></p>
       </div>
-      <form class="search">
-        <input type="text" placeholder="Search">
-        <button type="submit"><i class="bi bi-search"></i></button>
+      <form class="search" id="search-form">
+        <input type="text" placeholder="Search" id="search-term">
+        <button type="submit" id="submit-btn"><i class="bi bi-search"></i></button>
       </form>
       <div>
         <img id="profile" alt="profile">
       </div>
     </nav>
   </header>
+  <!-- Sidebar -->
   <div class="sidebar" id="sidebar-id">
     <div class="hide" id="skeleton-loader-side">
       <div class="skeleton-cont">
@@ -54,7 +56,14 @@
       </div>
     </div>
   </div>
+  <!-- Main -->
   <main id="main">
+    <!-- Empty div -->
+    <div class="empty hide" id="empty-id">
+      <img id="empty-img" alt="empty">
+      <h2>Can't find what you're looking for. Please try again</h2>
+    </div>
+    <!-- Skeletons -->
     <div class="meals hide" id="skeleton-loader-main">
       <div class="skeleton-cont">
         <div class="skeleton skeleton-image"></div>
@@ -121,6 +130,7 @@
         </div>
       </div>
     </div>
+    <!-- Meals -->
     <div class="meals" id="meals-id"></div>
   </main>
 </body>
