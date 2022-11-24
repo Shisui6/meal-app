@@ -12,21 +12,21 @@ export const displayComment = (comment) => {
   card.classList.add('card');
 
   // a div to contain the image and the name so they can be in the same line
-  const info = document.createElement('div');
-  info.classList.add('info');
+  const textContainer = document.createElement('div');
+  textContainer.classList.add('text-container');
 
   const photo = document.createElement('img');
   photo.src = profileImg;
-  info.appendChild(photo);
+  card.appendChild(photo);
 
   const name = document.createElement('h3');
   name.innerHTML = comment.username;
-  info.appendChild(name);
-  card.appendChild(info);
+  textContainer.appendChild(name);
 
   const message = document.createElement('p');
   message.textContent = comment.comment;
-  card.appendChild(message);
+  textContainer.appendChild(message);
+  card.appendChild(textContainer);
   return card;
 };
 
@@ -36,17 +36,21 @@ export const displayComments = (comments, id) => {
   // check if it's null if not create all the comments an show it, if it is just show
   if (comments) {
     const container = document.createElement('div');
-    // container.
+    container.classList.add('container');
     sidebar.classList.add('close');
+
+    const header = document.createElement('div');
+    header.classList.add('header');
     const close = document.createElement('span');
     close.textContent = 'X';
     close.classList.add('close');
     close.addEventListener('click', () => sidebar.classList.add('close'));
-    sidebar.appendChild(close);
+    header.appendChild(close);
+    sidebar.appendChild(header);
 
     const { length } = comments;
     for (let i = 0; i < length; i += 1) {
-      sidebar.appendChild(displayComment(comments[i]));
+      container.appendChild(displayComment(comments[i]));
     }
     const formContainer = document.createElement('div');
     formContainer.classList.add('formContainer');
@@ -83,6 +87,7 @@ export const displayComments = (comments, id) => {
     });
 
     formContainer.appendChild(form);
+    sidebar.appendChild(container);
     sidebar.appendChild(formContainer);
     body.appendChild(sidebar);
   }
