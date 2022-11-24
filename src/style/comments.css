@@ -1,4 +1,9 @@
-/* End Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #commets-sidbar {
   position: fixed;
   top: calc(0px - -65px);
@@ -7,14 +12,26 @@
   bottom: 0;
   background-color: white;
   z-index: 1;
-  padding: 15px;
-  overflow: auto;
   box-shadow: -8px 0 8px 0 rgb(0 0 0 / 20%);
   transition: 0.5s;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+#commets-sidbar .header {
+  padding: 15px;
+  box-shadow: 0 0 8px -2px black;
 }
 
 #commets-sidbar.close {
   left: 100%;
+}
+
+#commets-sidbar .container {
+  overflow: auto;
+  display: flex;
+  padding: 15px;
+  flex-direction: column;
 }
 
 #commets-sidbar .close {
@@ -22,22 +39,63 @@
 }
 
 #commets-sidbar .card {
+  font-size: 14px;
   padding-top: 15px;
-}
-
-#commets-sidbar .card .info {
   display: flex;
-  gap: 20px;
-  align-items: center;
+  gap: 10px;
 }
 
-#commets-sidbar .info img {
+#commets-sidbar img {
   width: 40px;
   height: 40px;
 }
 
-#commets-sidbar .card p {
+#commets-sidbar .formContainer {
+  transition: 0.5s;
+  height: 102%;
+}
+
+#commets-sidbar.close .formContainer {
+  bottom: -50%;
+}
+
+#commets-sidbar form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+  gap: 15px;
+  align-content: stretch;
+}
+
+#commets-sidbar form input.name {
+  width: 100%;
+  height: 35px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 0 6px 1px black;
   padding-left: 20px;
-  padding-top: 10px;
-  line-height: 30px;
+  padding-right: 70px;
+}
+
+#commets-sidbar form .comment {
+  width: 100%;
+  height: calc(100% - 50px);
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 0 6px 1px black;
+  padding: 15px;
+  resize: none;
+}
+
+#commets-sidbar form button {
+  background-color: #f4e7d3;
+  position: absolute;
+  cursor: pointer;
+  right: 15px;
+  bottom: 15px;
+  padding: 10px;
+  border-radius: 15px;
 }
