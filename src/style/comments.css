@@ -37,6 +37,7 @@
 }
 
 #commets-sidbar .card {
+  font-size: 14px;
   padding-top: 15px;
   display: flex;
   gap: 10px;
