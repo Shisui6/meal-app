@@ -10,14 +10,112 @@ const sidebar = document.getElementById('sidebar-id');
 const loaderMain = document.getElementById('skeleton-loader-main');
 const loaderSide = document.getElementById('skeleton-loader-side');
 
+// local array of meal ids which the user has liked
 const likes = [];
 
-// Function to fetch all meals from a category and append to DOM
-export const fetchMealsByCategory = async (cat) => {
+// Function to create meal element and append to DOM
+const appendElements = (info, response) => {
+  const mealElem = document.createElement('div');
+  mealElem.className = 'meal';
+  mealElem.insertAdjacentHTML('beforeend', `
+  <div class="meal-img-cont">
+    <img src="${info.strMealThumb}" alt="meal">
+  </div>
+  <h3>${info.strMeal}</h3>
+  <div class="meal-info">
+    <div class="comments">
+      <i class="bi bi-chat-fill" id="comment-${info.idMeal}"></i>
+    </div>
+    <div class="likes">
+      <div class="like-button">
+        <div class="heart-bg heart-bg-hover">
+          <div class="heart-icon" id="like-${info.idMeal}"></div>
+        </div>
+        <div class="likes-amount" id="like-amount-${info.idMeal}">${response.find((x) => x.item_id === info.idMeal) ? response.find((x) => x.item_id === info.idMeal).likes : '0'}</div>
+      </div>
+    </div>
+  </div>
+`);
+  mealElem.firstElementChild.id = `meal-${info.idMeal}`;
+  meals.appendChild(mealElem);
+
+  if (localStorage.getItem('likes')) {
+    if (JSON.parse(localStorage.getItem('likes')).includes(info.idMeal)) {
+      document.getElementById(`like-${info.idMeal}`).classList.toggle('liked');
+      document.getElementById(`like-${info.idMeal}`).parentNode.classList.toggle('heart-bg-hover');
+      document.getElementById(`like-amount-${info.idMeal}`).style.color = '#f91880';
+      document.getElementById(`like-amount-${info.idMeal}`).textContent = response.find((x) => x.item_id === info.idMeal).likes;
+    }
+  }
+
+  document.getElementById(`meal-${info.idMeal}`).addEventListener('click', (e) => {
+    if (!e.detail || e.detail === 1) {
+      const popup = new Popup();
+      popup.createPopup(info.idMeal);
+    }
+  });
+
+  document.getElementById(`comment-${info.idMeal}`).addEventListener('click', (e) => {
+    if (!e.detail || e.detail === 1) {
+      showComments(info.idMeal);
+    }
+  });
+
+  document.getElementById(`like-${info.idMeal}`).addEventListener('click', (e) => {
+    if (!e.target.classList.contains('liked')) {
+      like(info.idMeal);
+      e.target.classList.toggle('liked');
+      e.target.parentNode.classList.toggle('heart-bg-hover');
+      document.getElementById(`like-amount-${info.idMeal}`).style.color = '#f91880';
+      document.getElementById(`like-amount-${info.idMeal}`).textContent = response.find((x) => x.item_id === info.idMeal) ? response.find((x) => x.item_id === info.idMeal).likes += 1 : 1;
+      likes.push(info.idMeal);
+      localStorage.setItem('likes', JSON.stringify(likes));
+    }
+  });
+};
+
+// Function to modify page styling
+const modifyPage = () => {
   const amounts = document.getElementsByClassName('cat-amount');
   for (let i = 0; i < amounts.length; i += 1) {
     amounts[i].textContent = '';
   }
+  const cats = document.querySelectorAll('#sidebar-id div');
+  for (let i = 0; i < cats.length; i += 1) {
+    cats[i].classList.remove('selected');
+  }
+  if (!document.getElementById('empty-id').classList.contains('hide')) {
+    document.getElementById('empty-id').classList.toggle('hide');
+  }
+};
+
+// Function to fetch all meals from a category and append to DOM
+export const search = async (term) => {
+  modifyPage();
+
+  try {
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`);
+    const response1 = await fetch(likeURL);
+    if (response.ok && response1.ok) {
+      const json = await response.json();
+      const json1 = await response1.json();
+      loaderMain.classList.toggle('hide');
+      meals.innerHTML = '';
+      if (json.meals) {
+        appendElements(json.meals[0], json1);
+      } else {
+        document.getElementById('empty-id').classList.toggle('hide');
+      }
+    }
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+// Function to fetch all meals from a category and append to DOM
+export const fetchMealsByCategory = async (cat) => {
+  modifyPage();
+
   try {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`);
     const response1 = await fetch(likeURL);
@@ -26,59 +124,7 @@ export const fetchMealsByCategory = async (cat) => {
       const json1 = await response1.json();
       loaderMain.classList.toggle('hide');
       json.meals.forEach((item) => {
-        const mealElem = document.createElement('div');
-        mealElem.className = 'meal';
-        mealElem.insertAdjacentHTML('beforeend', `
-        <div class="meal-img-cont">
-          <img src="${item.strMealThumb}" alt="meal">
-        </div>
-        <h3>${item.strMeal}</h3>
-        <div class="meal-info">
-          <div class="comments">
-            <i class="bi bi-chat-fill" id="comment-${item.idMeal}"></i>
-          </div>
-          <div class="likes">
-            <div class="like-button">
-              <div class="heart-bg heart-bg-hover">
-                <div class="heart-icon" id="like-${item.idMeal}"></div>
-              </div>
-              <div class="likes-amount" id="like-amount-${item.idMeal}">${json1.find((x) => x.item_id === item.idMeal) ? json1.find((x) => x.item_id === item.idMeal).likes : '0'}</div>
-            </div>
-          </div>
-        </div>
-      `);
-        mealElem.firstElementChild.id = `meal-${item.idMeal}`;
-        meals.appendChild(mealElem);
-
-        if (localStorage.getItem('likes')) {
-          if (JSON.parse(localStorage.getItem('likes')).includes(item.idMeal)) {
-            document.getElementById(`like-${item.idMeal}`).classList.toggle('liked');
-            document.getElementById(`like-${item.idMeal}`).parentNode.classList.toggle('heart-bg-hover');
-            document.getElementById(`like-amount-${item.idMeal}`).style.color = '#f91880';
-            document.getElementById(`like-amount-${item.idMeal}`).textContent = json1.find((x) => x.item_id === item.idMeal).likes;
-          }
-        }
-
-        document.getElementById(`meal-${item.idMeal}`).addEventListener('click', () => {
-          const popup = new Popup();
-          popup.createPopup(item.idMeal);
-        });
-
-        document.getElementById(`comment-${item.idMeal}`).addEventListener('click', () => {
-          showComments(item.idMeal);
-        });
-
-        document.getElementById(`like-${item.idMeal}`).addEventListener('click', (e) => {
-          if (!e.target.classList.contains('liked')) {
-            like(item.idMeal);
-            e.target.classList.toggle('liked');
-            e.target.parentNode.classList.toggle('heart-bg-hover');
-            document.getElementById(`like-amount-${item.idMeal}`).style.color = '#f91880';
-            document.getElementById(`like-amount-${item.idMeal}`).textContent = json1.find((x) => x.item_id === item.idMeal) ? json1.find((x) => x.item_id === item.idMeal).likes += 1 : 1;
-            likes.push(item.idMeal);
-            localStorage.setItem('likes', JSON.stringify(likes));
-          }
-        });
+        appendElements(item, json1);
       });
       document.getElementById(`${cat}-amount`).textContent = `(${itemsCounter()})`;
     }

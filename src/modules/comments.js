@@ -1,10 +1,17 @@
 import { addComments, getComments } from '../API/theMealAPI.js';
-import '../style/comments.css';
 import profileImg from '../images/profile.png';
+import profile2Img from '../images/profile2.png';
+import profile3Img from '../images/profile3.png';
+import profile4Img from '../images/profile4.png';
+import profile5Img from '../images/profile5.png';
+import profile6Img from '../images/profile6.png';
 
 const body = document.querySelector('body');
 const sidebar = document.createElement('div');
 sidebar.id = 'commets-sidbar';
+
+// Array of profile images
+const imageArr = [profileImg, profile2Img, profile3Img, profile4Img, profile5Img, profile6Img];
 
 // create one comment in the sidebar
 export const displayComment = (comment) => {
@@ -16,7 +23,8 @@ export const displayComment = (comment) => {
   textContainer.classList.add('text-container');
 
   const photo = document.createElement('img');
-  photo.src = profileImg;
+  photo.src = imageArr[Math.floor(Math.random() * 6)];
+  photo.className = 'comment-img';
   card.appendChild(photo);
 
   const name = document.createElement('h3');
@@ -63,17 +71,17 @@ export const displayComments = (comments, id) => {
     const inputName = document.createElement('input');
     inputName.classList.add('name');
     inputName.type = 'text';
-    inputName.placeholder = 'name';
+    inputName.placeholder = 'Your name';
     inputName.setAttribute('required', 'true');
     form.appendChild(inputName);
     const inputcomment = document.createElement('textarea');
     inputcomment.classList.add('comment');
-    inputcomment.placeholder = 'add you comment...';
+    inputcomment.placeholder = 'Your comment';
     inputcomment.setAttribute('required', 'true');
     form.appendChild(inputcomment);
     const submit = document.createElement('button');
     submit.type = 'submit';
-    submit.innerHTML = '<i class="bi bi-arrow-return-left"></i>';
+    submit.innerHTML = '<i class="bi bi-send-fill"></i>';
     form.appendChild(submit);
     form.addEventListener('submit', (e) => {
       e.preventDefault();
