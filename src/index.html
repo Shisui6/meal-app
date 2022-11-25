@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap" rel="stylesheet">
+  <title>Meal App</title>
+  <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">
+        <img id="logo" alt="logo">
+        <p>Meal <span>App</span></p>
+      </div>
+      <form class="search" id="search-form">
+        <input type="text" placeholder="Search" id="search-term">
+        <button type="submit" id="submit-btn"><i class="bi bi-search"></i></button>
+      </form>
+      <div>
+        <img id="profile" alt="profile">
+      </div>
+    </nav>
+  </header>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar-id">
+    <div class="hide" id="skeleton-loader-side">
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image-side"></div>
+        <div class="skeleton skeleton-text-side"></div>
+      </div>
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image-side"></div>
+        <div class="skeleton skeleton-text-side"></div>
+      </div>
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image-side"></div>
+        <div class="skeleton skeleton-text-side"></div>
+      </div>
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image-side"></div>
+        <div class="skeleton skeleton-text-side"></div>
+      </div>
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image-side"></div>
+        <div class="skeleton skeleton-text-side"></div>
+      </div>
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image-side"></div>
+        <div class="skeleton skeleton-text-side"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Main -->
+  <main id="main">
+    <!-- Empty div -->
+    <div class="empty hide" id="empty-id">
+      <img id="empty-img" alt="empty">
+      <h2>We looked all over the multiverse be we just couldn't find '<span id="empty-term"></span>'. <br><br> Please try again</h2>
+    </div>
+    <!-- Skeletons -->
+    <div class="meals hide" id="skeleton-loader-main">
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton-info">
+          <div class="skeleton skeleton-like"></div>
+          <div class="skeleton skeleton-like"></div>
+        </div>
+      </div>
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton-info">
+          <div class="skeleton skeleton-like"></div>
+          <div class="skeleton skeleton-like"></div>
+        </div>
+      </div>
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton-info">
+          <div class="skeleton skeleton-like"></div>
+          <div class="skeleton skeleton-like"></div>
+        </div>
+      </div>
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton-info">
+          <div class="skeleton skeleton-like"></div>
+          <div class="skeleton skeleton-like"></div>
+        </div>
+      </div>
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton-info">
+          <div class="skeleton skeleton-like"></div>
+          <div class="skeleton skeleton-like"></div>
+        </div>
+      </div>
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton-info">
+          <div class="skeleton skeleton-like"></div>
+          <div class="skeleton skeleton-like"></div>
+        </div>
+      </div>
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton-info">
+          <div class="skeleton skeleton-like"></div>
+          <div class="skeleton skeleton-like"></div>
+        </div>
+      </div>
+      <div class="skeleton-cont">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton-info">
+          <div class="skeleton skeleton-like"></div>
+          <div class="skeleton skeleton-like"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Meals -->
+    <div class="meals" id="meals-id"></div>
+  </main>
+</body>
+</html>
