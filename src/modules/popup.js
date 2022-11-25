@@ -1,4 +1,4 @@
-import { getById } from '../API/theMealAPI.js';
+import { getById } from './theMealAPI.js';
 
 const body = document.querySelector('body');
 

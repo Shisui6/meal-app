@@ -260,6 +260,24 @@ button {
   color: #c2a171;
 }
 
+/* Empty */
+.empty {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 130px;
+}
+
+.empty h2 {
+  color: #c2a171;
+  font-size: 25px;
+  width: 50%;
+  margin: 0 auto;
+}
+
 /* Popup */
 #popup {
   content: '';
@@ -353,6 +371,144 @@ button {
 #popup p,
 #popup li {
   font-size: 12.3px;
+}
+
+/* Comments */
+#commets-sidbar {
+  position: fixed;
+  top: calc(0px - -65px);
+  right: 0;
+  left: 75%;
+  bottom: 0;
+  background-color: white;
+  z-index: 1;
+  box-shadow: -8px 0 8px 0 rgb(0 0 0 / 20%);
+  transition: 0.5s;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+#commets-sidbar.close {
+  left: 100%;
+}
+
+#commets-sidbar .header {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 8px -2px black;
+}
+
+#commets-sidbar .header .close {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 900;
+  color: #c2a171;
+  transition: 0.3s;
+}
+
+#commets-sidbar .header .close:hover {
+  color: #ccc;
+}
+
+#commets-sidbar .header .sction-name {
+  color: #c2a171;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+#commets-sidbar .container {
+  overflow: auto;
+  display: flex;
+  padding: 15px;
+  height: 105%;
+  flex-direction: column;
+}
+
+#commets-sidbar .card {
+  font-size: 14px;
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+#commets-sidbar h3,
+#commets-sidbar p {
+  margin: 0;
+  padding: 0;
+}
+
+.comment-img {
+  width: 40px;
+  height: 40px;
+}
+
+#commets-sidbar .formContainer {
+  transition: 0.5s;
+  height: 102%;
+}
+
+#commets-sidbar.close .formContainer {
+  bottom: -50%;
+}
+
+#commets-sidbar form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+  gap: 15px;
+  align-content: stretch;
+}
+
+#commets-sidbar form input.name {
+  width: 100%;
+  height: 35px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 6px 1px #c2a171;
+  padding-left: 20px;
+  padding-right: 70px;
+  transition: 0.3s;
+}
+
+#commets-sidbar form input.name:focus {
+  box-shadow: 0 0 8px 1px #ccc;
+}
+
+#commets-sidbar form .comment {
+  width: 100%;
+  height: calc(100% - 50px);
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 6px 1px #c2a171;
+  padding: 15px;
+  resize: none;
+}
+
+#commets-sidbar form .comment:focus {
+  box-shadow: 0 0 8px 1px #ccc;
+}
+
+#commets-sidbar form button {
+  background-color: #f4e7d3;
+  position: absolute;
+  cursor: pointer;
+  right: 15px;
+  bottom: 15px;
+  padding: 10px;
+  transition: 0.3s;
+  border-radius: 15px 0 15px 0;
+}
+
+#commets-sidbar form button:hover {
+  background-color: #ccc;
+  color: #fff;
 }
 
 /* Loading skeleton */

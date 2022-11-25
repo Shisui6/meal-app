@@ -24,9 +24,9 @@
 
 # 📖 Meal App <a name="about-project"></a>
 
-**Meal App** is web application that shows you all your favourite meals. Select a meal to see more information and leave a comment on how delicious it is. Dont forget to leave a like 🧡
+**Meal App** is web application that helps you decide your next meal. Select a meal to see how its prepared, or post a comment on how delicious it is. Don't forget to like 🧡 your favourites
 
-![image](https://user-images.githubusercontent.com/37116322/203491283-1803914a-23d3-4258-9e74-3e391359fc68.png)
+![image](https://user-images.githubusercontent.com/37116322/203872051-db15c8b6-3fff-4292-9df1-1e13d2264828.png)
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -47,12 +47,13 @@
 
 ### Key Features <a name="key-features"></a>
 
-- Fetches and displays data from the mealdb API
+- Fetches and displays meal information under different categories from the [mealdb](https://www.themealdb.com/api.php) API
+- Fetches and displays likes and comments for each meal using the [involement](https://www.notion.so/Involvement-API-869e60b5ad104603aa6db59e08150270) API
 - Displays loading screens to the user during fetch
-- Displays meal information and comments for each meal in a modal popup
+- Displays additional meal information in a modal popup
 - Allows users to like meals
 - Allows users to comment on meals
-- Responsive design which adapts to most screen sizes
+- Allows users to search for meals
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -123,6 +124,16 @@ You can deploy this project using:
   npm run deploy - Deploys using gh-pages
 ```
 
+### API Instructions
+
+Instructions to setup Involvement API key are as follows:
+
+```sh
+- Create a new app on your command line using ` curl -X POST https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ `
+- Add the returned API key to a `.env` file in your root directory using `API_KEY=returnedApiKey`
+- Note: make sure to replace `returnedApiKey` with your API key
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -146,7 +157,6 @@ You can deploy this project using:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] Mobile Responsiveness
-- [ ] Search bar to filter items by name
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
