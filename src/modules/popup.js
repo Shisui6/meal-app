@@ -10,7 +10,7 @@ export default class Popup {
   }
 
   createPopup(id) {
-    getById(id).then((data) => data.json()).then((data) => data.meals[0]).then((data) => {
+    getById(id).then((data) => {
       this.generate(data);
     });
   }
