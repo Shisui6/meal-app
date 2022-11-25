@@ -24,7 +24,7 @@
 
 # 📖 Meal App <a name="about-project"></a>
 
-**Meal App** is web application that helps you decide your next meal. Select a meal to see how its prepared, or post a comment on how delicious it is. Don't forget to like 🧡 your favourites
+**Meal App** is web application that helps you decide your next meal. Select a meal to see how its prepared, or post a comment on how delicious it is. Don't forget to like 🧡 your favorites
 
 ![image](https://user-images.githubusercontent.com/37116322/203872051-db15c8b6-3fff-4292-9df1-1e13d2264828.png)
 
@@ -161,7 +161,8 @@ Instructions to setup Involvement API key are as follows:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Mobile Responsiveness
+- [ ] Create user profiles
+- [ ] Save favorite meals for users on their dashboard
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

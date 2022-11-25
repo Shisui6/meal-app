@@ -12,6 +12,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  min-width: 450px;
 }
 
 /* Header */
@@ -98,10 +99,12 @@ button {
 .sidebar {
   position: fixed;
   left: 0;
+  bottom: 0;
+  top: 65px;
   width: 72px;
   padding: 40px 0;
-  height: calc(100vh - 65px);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
 }
 
 .selected {
@@ -153,9 +156,6 @@ button {
 
 .meal-img-cont {
   height: 180px;
-  width: 100%;
-  max-width: 400px;
-  margin: auto;
   overflow: hidden;
   border-radius: 15px;
   cursor: pointer;
@@ -591,4 +591,59 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* Media Query */
+@media only screen and (min-width: 700px) and (max-width: 950px) {
+  .meals {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 550px) and (max-width: 950px) {
+  #commets-sidbar {
+    left: 55%;
+  }
+}
+
+@media only screen and (min-width: 550px) and (max-width: 700px) {
+  .meals {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .meals {
+    grid-template-columns: 1fr;
+    padding: 40px 40px;
+  }
+
+  #profile {
+    display: none;
+  }
+
+  .search {
+    position: absolute;
+    right: 40px;
+  }
+
+  #commets-sidbar {
+    left: 20%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .meals {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    padding: 5px 25px;
+  }
+
+  #popup .popup-main {
+    grid-template-columns: 1fr;
+  }
 }
