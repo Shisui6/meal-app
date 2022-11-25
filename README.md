@@ -28,6 +28,11 @@
 
 ![image](https://user-images.githubusercontent.com/37116322/203872051-db15c8b6-3fff-4292-9df1-1e13d2264828.png)
 
+## Assesment Links
+- [Kanban Board](https://github.com/Shisui6/meal-app/projects/1)
+- [Pull request - Shisui](https://github.com/Shisui6/meal-app/pull/31)
+- [Pull request - Ahmed](https://github.com/Shisui6/meal-app/pull/29)
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
