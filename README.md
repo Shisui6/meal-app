@@ -126,10 +126,10 @@ You can deploy this project using:
 
 ### API Instructions
 
-Instructions to setup API key are as follows:
+Instructions to setup Involvement API key are as follows:
 
 ```sh
-- Create a new game on your command line using ` curl -X POST https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ `
+- Create a new app on your command line using ` curl -X POST https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ `
 - Add the returned API key to a `.env` file in your root directory using `API_KEY=returnedApiKey`
 - Note: make sure to replace `returnedApiKey` with your API key
 ```
