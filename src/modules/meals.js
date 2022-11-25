@@ -2,6 +2,7 @@
 import Popup from './popup.js';
 import { showComments } from './comments.js';
 import { likeURL, like } from './likes.js';
+import itemsCounter from './itemsCounter.js';
 
 // Get relevant elements from the DOM
 const meals = document.getElementById('meals-id');
@@ -13,6 +14,10 @@ const likes = [];
 
 // Function to fetch all meals from a category and append to DOM
 export const fetchMealsByCategory = async (cat) => {
+  const amounts = document.getElementsByClassName('cat-amount');
+  for (let i = 0; i < amounts.length; i += 1) {
+    amounts[i].textContent = '';
+  }
   try {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`);
     const response1 = await fetch(likeURL);
@@ -30,8 +35,7 @@ export const fetchMealsByCategory = async (cat) => {
         <h3>${item.strMeal}</h3>
         <div class="meal-info">
           <div class="comments">
-            <i class="bi bi-chat" id="comment-${item.idMeal}"></i>
-            <p>50</p>
+            <i class="bi bi-chat-fill" id="comment-${item.idMeal}"></i>
           </div>
           <div class="likes">
             <div class="like-button">
@@ -76,6 +80,7 @@ export const fetchMealsByCategory = async (cat) => {
           }
         });
       });
+      document.getElementById(`${cat}-amount`).textContent = `(${itemsCounter()})`;
     }
   } catch (error) {
     throw new Error(error);
@@ -102,7 +107,7 @@ export const fetchCategories = async () => {
         categoryElem.id = `category-${item.strCategory}`;
         categoryElem.insertAdjacentHTML('beforeend', `
         <img src="${item.strCategoryThumb}" alt="meal">
-        <p>${item.strCategory}</p>
+        <p>${item.strCategory}<span id="${item.strCategory}-amount" class="cat-amount"></span></p>
       `);
         sidebar.appendChild(categoryElem);
 
