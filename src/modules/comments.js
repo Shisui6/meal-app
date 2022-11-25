@@ -6,6 +6,7 @@ import profile3Img from '../images/profile3.png';
 import profile4Img from '../images/profile4.png';
 import profile5Img from '../images/profile5.png';
 import profile6Img from '../images/profile6.png';
+import counter from './commentsCounter.js';
 
 const body = document.querySelector('body');
 const sidebar = document.createElement('div');
@@ -15,7 +16,7 @@ sidebar.id = 'commets-sidbar';
 const imageArr = [profileImg, profile2Img, profile3Img, profile4Img, profile5Img, profile6Img];
 
 // create one comment in the sidebar
-export const displayComment = (comment) => {
+const displayComment = (comment) => {
   const card = document.createElement('div');
   card.classList.add('card');
 
@@ -39,10 +40,8 @@ export const displayComment = (comment) => {
   return card;
 };
 
-const comentsSize = (array) => array.length;
-
 // creat all comments by using list of object from the api
-export const displayComments = (comments, id) => {
+const displayComments = async (comments, id) => {
   sidebar.innerHTML = '';
   // check if it's null if not create all the comments an show it, if it is just show
   if (comments) {
@@ -55,7 +54,7 @@ export const displayComments = (comments, id) => {
     header.classList.add('header');
     const sction = document.createElement('span');
     sction.classList.add('sction-name');
-    sction.textContent = `Comments(${comentsSize(comments)})`;
+    sction.textContent = `Comments(${0})`;
     header.appendChild(sction);
     const close = document.createElement('span');
     close.textContent = 'X';
@@ -63,7 +62,7 @@ export const displayComments = (comments, id) => {
     close.addEventListener('click', () => sidebar.classList.add('close'));
     header.appendChild(close);
     sidebar.appendChild(header);
-    const length = comentsSize(comments);
+    const { length } = comments;
     for (let i = 0; i < length; i += 1) {
       container.appendChild(displayComment(comments[i]));
     }
@@ -106,15 +105,19 @@ export const displayComments = (comments, id) => {
     sidebar.appendChild(container);
     sidebar.appendChild(formContainer);
     body.appendChild(sidebar);
+    sction.textContent = `Comments(${counter()})`;
   }
   sidebar.classList.remove('close');
 };
 
 // use this to make the comments shown by givin the id of the meal
-export const showComments = (id) => {
+const showComments = (id) => {
   getComments(id)
     .then((data) => {
       displayComments(data, id);
     })
     .catch(() => displayComments(null));
 };
+
+// eslint-disable-next-line import/prefer-default-export
+export { showComments };
