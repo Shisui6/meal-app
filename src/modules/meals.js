@@ -11,6 +11,7 @@ const sidebar = document.getElementById('sidebar-id');
 const loaderMain = document.getElementById('skeleton-loader-main');
 const loaderSide = document.getElementById('skeleton-loader-side');
 
+// Animation library
 const controller = autoAnimate(meals);
 autoAnimate(sidebar);
 

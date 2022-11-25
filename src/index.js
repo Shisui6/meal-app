@@ -1,7 +1,6 @@
 // Imports
 import './style.css';
 import './modules/popup.js';
-import './style/comments.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import logoImg from './images/logo.png';
 import profileImg from './images/profile.png';
