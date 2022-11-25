@@ -2,7 +2,11 @@ const invo = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi
 const key = 'ZL01BQpf9fh0l4EnAOtP';
 
 // geting a meal by the id of it
-const getById = async (id) => fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
+const getById = async (id) => {
+  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
+  const result = await response.json();
+  return result.meals[0];
+};
 
 // geting a comments by the id of the meal
 const getComments = async (id) => {
