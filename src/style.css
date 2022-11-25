@@ -102,7 +102,7 @@ button {
   bottom: 0;
   top: 65px;
   width: 72px;
-  padding: 40px 0;
+  padding: 30px 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   overflow-y: auto;
 }
