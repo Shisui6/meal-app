@@ -61,10 +61,12 @@ export default class Popup {
 
     this.mainDiv.appendChild(container);
     body.appendChild(this.mainDiv);
+    body.style.overflow = 'hidden';
   }
 
   close() {
     body.removeChild(this.mainDiv);
+    body.style.overflow = '';
   }
 
   generate(meal) {
