@@ -425,6 +425,16 @@ button {
   flex-direction: column;
 }
 
+.text-container {
+  width: 100%;
+}
+
+.text-cont-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 #commets-sidbar .card {
   font-size: 14px;
   display: flex;
@@ -437,6 +447,11 @@ button {
 #commets-sidbar p {
   margin: 0;
   padding: 0;
+}
+
+#commets-sidbar .text-cont-head p {
+  color: #b1b4ba;
+  font-size: 12px;
 }
 
 .comment-img {
@@ -509,6 +524,15 @@ button {
 #commets-sidbar form button:hover {
   background-color: #ccc;
   color: #fff;
+}
+
+.empty-comment {
+  text-align: center;
+  padding-top: 70px;
+}
+
+#commets-sidbar .empty-comment p {
+  color: #c2a171;
 }
 
 /* Loading skeleton */
