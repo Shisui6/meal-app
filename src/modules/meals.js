@@ -165,16 +165,18 @@ export const fetchCategories = async () => {
       `);
         sidebar.appendChild(categoryElem);
 
-        document.getElementById(`category-${item.strCategory}`).addEventListener('click', () => {
-          loaderMain.classList.toggle('hide');
-          controller.disable();
-          meals.innerHTML = '';
-          const cats = document.querySelectorAll('#sidebar-id div');
-          for (let i = 0; i < cats.length; i += 1) {
-            cats[i].classList.remove('selected');
+        document.getElementById(`category-${item.strCategory}`).addEventListener('click', (e) => {
+          if (!e.detail || e.detail === 1) {
+            loaderMain.classList.toggle('hide');
+            controller.disable();
+            meals.innerHTML = '';
+            const cats = document.querySelectorAll('#sidebar-id div');
+            for (let i = 0; i < cats.length; i += 1) {
+              cats[i].classList.remove('selected');
+            }
+            categoryElem.classList.add('selected');
+            fetchMealsByCategory(item.strCategory);
           }
-          categoryElem.classList.add('selected');
-          fetchMealsByCategory(item.strCategory);
         });
       });
     }

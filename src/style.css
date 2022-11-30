@@ -333,7 +333,7 @@ button {
   font-weight: 900;
   cursor: pointer;
   color: #f4e7d3;
-  padding: 10px 10px 0;
+  padding: 5px 10px 0;
   transition: 0.3s;
 }
 
@@ -350,15 +350,27 @@ button {
   padding: 0 15px 15px;
 }
 
+.top-main {
+  height: 75vh;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
 #popup .popup-main a img {
   width: 100%;
+  height: 100%;
   border-radius: 15px;
+  transition: transform 0.5s ease;
+}
+
+#popup .top-main:hover img {
+  transform: scale(1.1);
 }
 
 #popup .popup-main .instructions {
   text-align: left;
   overflow-y: auto;
-  height: 470px;
+  height: 72vh;
 }
 
 #popup h2 {
@@ -677,6 +689,10 @@ button {
 
   #popup .container {
     overflow: auto;
+  }
+
+  .top-main {
+    height: 35vh;
   }
 
   .empty {
